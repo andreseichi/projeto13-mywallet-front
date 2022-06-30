@@ -16,8 +16,8 @@ export function Home() {
       <Summary />
 
       <TransactionsInput>
-        <TransactionInput type="deposit" text="Nova Entrada" to="/deposit" />
-        <TransactionInput type="withdraw" text="Nova Saída" to="/withdraw" />
+        <TransactionInput type="income" text="Nova Entrada" to="/income" />
+        <TransactionInput type="outcome" text="Nova Saída" to="/outcome" />
       </TransactionsInput>
     </Container>
   );

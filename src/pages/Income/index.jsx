@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Container, Header, Heading, Form, Input, Button } from './styles';
 
-export function Deposit() {
+export function Income() {
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState('');
   const [isLoading, setIsloading] = useState(false);

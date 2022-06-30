@@ -5,7 +5,7 @@ import { Container } from './styles';
 export function TransactionInput({ type, text, to }) {
   return (
     <Container to={to}>
-      {type === 'deposit' ? <FiPlusCircle /> : <FiMinusCircle />}
+      {type === 'income' ? <FiPlusCircle /> : <FiMinusCircle />}
       <span>{text}</span>
     </Container>
   );
