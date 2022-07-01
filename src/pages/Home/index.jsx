@@ -1,7 +1,7 @@
 import { Summary } from '../../components/Summary';
 import { TransactionInput } from '../../components/TransactionInput';
 
-import { FiLogOut } from 'react-icons/fi';
+import { LogOut } from '../../components/LogOut';
 
 import { Container, Header, Greeting, TransactionsInput } from './styles';
 
@@ -10,7 +10,7 @@ export function Home() {
     <Container>
       <Header>
         <Greeting>Olá, Tashiro</Greeting>
-        <FiLogOut />
+        <LogOut />
       </Header>
 
       <Summary />
