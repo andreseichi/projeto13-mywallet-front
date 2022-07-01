@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { ThreeDots } from 'react-loader-spinner';
+
 import { api } from '../../services/api';
 
 import { Container, Header, Heading, Form, Input, Button } from './styles';
@@ -68,8 +70,11 @@ export function Income() {
         />
 
         <Button onSubmit={(event) => submitForm(event)} disabled={isLoading}>
-          Salvar entrada
-          {/* {isLoading ? <ThreeDots height="auto" color="#fff" /> : 'Entrar'} */}
+          {isLoading ? (
+            <ThreeDots height="auto" color="#fff" />
+          ) : (
+            'Salvar entrada'
+          )}
         </Button>
       </Form>
     </Container>

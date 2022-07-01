@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// import { ThreeDots } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 
 import { api } from '../../services/api';
 
@@ -69,8 +69,7 @@ export function Login() {
         />
 
         <Button onSubmit={(event) => submitForm(event)} disabled={isLoading}>
-          Entrar
-          {/* {isLoading ? <ThreeDots height="auto" color="#fff" /> : 'Entrar'} */}
+          {isLoading ? <ThreeDots height="auto" color="#fff" /> : 'Entrar'}
         </Button>
       </Form>
 
