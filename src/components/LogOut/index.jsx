@@ -29,7 +29,6 @@ export function LogOut() {
         alert(error.response.data.message);
         setIsloading(false);
       });
-    console.log('clicado');
   }
 
   return <FiLogOut onClick={handleLogOut} />;
