@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 // import { ThreeDots } from 'react-loader-spinner';
 
+import { api } from '../../services/api';
+
 import {
   Container,
   Logo,
@@ -13,8 +15,6 @@ import {
   Button,
   LinkStyled,
 } from './styles';
-
-import axios from 'axios';
 
 export function SignUp() {
   const [inputs, setInputs] = useState({
@@ -45,19 +45,23 @@ export function SignUp() {
       setIsPasswordEqual(true);
     }
 
+    const inputsObject = {
+      name: inputs.name,
+      email: inputs.email,
+      password: inputs.password,
+    };
+
     setIsloading(true);
 
-    axios
-      .post(
-        'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up',
-        inputs
-      )
+    api
+      .post('/sign-up', inputsObject)
       .then((response) => {
         if (response.status === 201) {
           navigate('/login');
         }
       })
       .catch((error) => {
+        console.log(error);
         alert(error.response.data.message);
         setIsloading(false);
       });
