@@ -35,7 +35,7 @@ export function Login() {
           const { token } = response.data;
 
           localStorage.setItem('token', token);
-          navigate('/');
+          navigate('/home');
         }
       })
       .catch((error) => {

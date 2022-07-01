@@ -21,7 +21,7 @@ export function LogOut() {
         if (response.status === 200) {
           localStorage.removeItem('token');
 
-          navigate('/login');
+          navigate('/');
         }
       })
       .catch((error) => {

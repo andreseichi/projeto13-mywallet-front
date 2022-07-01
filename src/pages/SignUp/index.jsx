@@ -57,7 +57,7 @@ export function SignUp() {
       .post('/sign-up', inputsObject)
       .then((response) => {
         if (response.status === 201) {
-          navigate('/login');
+          navigate('/');
         }
       })
       .catch((error) => {
@@ -122,7 +122,7 @@ export function SignUp() {
         </Button>
       </Form>
 
-      <LinkStyled to="/login">Já tem uma conta? Entre agora!</LinkStyled>
+      <LinkStyled to="/">Já tem uma conta? Entre agora!</LinkStyled>
     </Container>
   );
 }

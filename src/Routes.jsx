@@ -9,8 +9,8 @@ import { Outcome } from './pages/Outcome';
 export function Routes() {
   return (
     <Router>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/income" element={<Income />} />
       <Route path="/outcome" element={<Outcome />} />
