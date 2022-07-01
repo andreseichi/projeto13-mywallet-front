@@ -1,16 +1,45 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { api } from '../../services/api';
 
 import { Container, Header, Heading, Form, Input, Button } from './styles';
 
 export function Outcome() {
-  const [amount, setAmount] = useState(0);
+  const navigate = useNavigate();
+
+  const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [isLoading, setIsloading] = useState(false);
 
   function submitForm(event) {
     event.preventDefault();
 
-    console.log(amount, description);
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    };
+
+    const inputsObject = {
+      value: amount,
+      description,
+      type: 'outcome',
+    };
+
+    api
+      .post('/transactions', inputsObject, config)
+      .then((response) => {
+        if (response.status === 201) {
+          navigate('/');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error.response.data.message);
+        setIsloading(false);
+      });
   }
 
   return (
@@ -24,7 +53,7 @@ export function Outcome() {
           placeholder="Valor"
           type="number"
           name="amount"
-          onChange={(event) => setAmount(event.target.value)}
+          onChange={(event) => setAmount(+event.target.value)}
           value={amount}
           required
         />
