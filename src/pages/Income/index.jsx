@@ -8,7 +8,7 @@ import { Container, Header, Heading, Form, Input, Button } from './styles';
 export function Income() {
   const navigate = useNavigate();
 
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [isLoading, setIsloading] = useState(false);
 
