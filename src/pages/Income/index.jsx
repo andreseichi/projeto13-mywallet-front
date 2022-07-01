@@ -28,6 +28,8 @@ export function Income() {
       type: 'income',
     };
 
+    setIsloading(true);
+
     api
       .post('/transactions', inputsObject, config)
       .then((response) => {
@@ -37,7 +39,6 @@ export function Income() {
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
         setIsloading(false);
       });
   }

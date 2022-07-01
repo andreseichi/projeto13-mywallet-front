@@ -28,6 +28,8 @@ export function Outcome() {
       type: 'outcome',
     };
 
+    setIsloading(true);
+
     api
       .post('/transactions', inputsObject, config)
       .then((response) => {
@@ -37,7 +39,6 @@ export function Outcome() {
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
         setIsloading(false);
       });
   }

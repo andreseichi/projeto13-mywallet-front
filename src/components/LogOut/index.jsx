@@ -26,8 +26,6 @@ export function LogOut() {
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
-        setIsloading(false);
       });
   }
 

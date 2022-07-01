@@ -34,15 +34,12 @@ export function Login() {
         if (response.status === 200) {
           const { token } = response.data;
 
-          console.log(response);
-
           localStorage.setItem('token', token);
           navigate('/');
         }
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
         setIsloading(false);
       });
   }

@@ -17,19 +17,24 @@ export function Summary() {
       },
     };
 
-    api.get('/transactions', config).then((response) => {
-      if (response.status === 200) {
-        const balanceAmount = response.data.reduce((acc, transaction) => {
-          if (transaction.type === 'income') {
-            return acc + Number(transaction.value);
-          } else {
-            return acc - Number(transaction.value);
-          }
-        }, 0);
-        setBalance(balanceAmount);
-        setTransactions(response.data);
-      }
-    });
+    api
+      .get('/transactions', config)
+      .then((response) => {
+        if (response.status === 200) {
+          const balanceAmount = response.data.reduce((acc, transaction) => {
+            if (transaction.type === 'income') {
+              return acc + Number(transaction.value);
+            } else {
+              return acc - Number(transaction.value);
+            }
+          }, 0);
+          setBalance(balanceAmount);
+          setTransactions(response.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (

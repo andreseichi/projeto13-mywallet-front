@@ -1,6 +1,5 @@
 import { Summary } from '../../components/Summary';
 import { TransactionInput } from '../../components/TransactionInput';
-
 import { LogOut } from '../../components/LogOut';
 
 import { Container, Header, Greeting, TransactionsInput } from './styles';
