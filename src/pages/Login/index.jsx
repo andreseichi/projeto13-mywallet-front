@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { ThreeDots } from 'react-loader-spinner';
+
+import { useUser } from '../../hooks/useUser';
 
 import { api } from '../../services/api';
 
@@ -13,6 +14,8 @@ export function Login() {
     password: '',
   });
   const [isLoading, setIsloading] = useState(false);
+
+  const { loginUser } = useUser();
 
   const navigate = useNavigate();
 
@@ -32,9 +35,10 @@ export function Login() {
       .post('/sign-in', inputs)
       .then((response) => {
         if (response.status === 200) {
-          const { token } = response.data;
+          const { token, name } = response.data;
 
           localStorage.setItem('token', token);
+          loginUser(name);
           navigate('/home');
         }
       })

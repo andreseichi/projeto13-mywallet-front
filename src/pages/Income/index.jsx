@@ -36,7 +36,7 @@ export function Income() {
       .post('/transactions', inputsObject, config)
       .then((response) => {
         if (response.status === 201) {
-          navigate('/');
+          navigate('/home');
         }
       })
       .catch((error) => {
