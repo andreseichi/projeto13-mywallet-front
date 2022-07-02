@@ -6,13 +6,22 @@ import { useUser } from '../../hooks/useUser';
 
 import { api } from '../../services/api';
 
-import { Container, Logo, Form, Input, Button, LinkStyled } from './styles';
+import {
+  Container,
+  Logo,
+  Form,
+  Input,
+  Button,
+  LinkStyled,
+  LoginError,
+} from './styles';
 
 export function Login() {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
   });
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsloading] = useState(false);
 
   const { loginUser } = useUser();
@@ -44,6 +53,9 @@ export function Login() {
       })
       .catch((error) => {
         console.log(error);
+        if (error.response.status === 401) {
+          setIsError(true);
+        }
         setIsloading(false);
       });
   }
@@ -71,6 +83,8 @@ export function Login() {
           required
           disabled={isLoading}
         />
+
+        {isError ? <LoginError>E-mail ou senha incorretas!</LoginError> : ''}
 
         <Button onSubmit={(event) => submitForm(event)} disabled={isLoading}>
           {isLoading ? <ThreeDots height="auto" color="#fff" /> : 'Entrar'}

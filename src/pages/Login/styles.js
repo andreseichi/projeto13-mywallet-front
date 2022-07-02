@@ -26,7 +26,7 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 14px;
 
@@ -85,4 +85,11 @@ export const LinkStyled = styled(Link)`
   margin-top: 36px;
 
   color: #fff;
+`;
+
+export const LoginError = styled.span`
+  color: red;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 10px;
 `;
