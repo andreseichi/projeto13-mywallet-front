@@ -34,6 +34,18 @@ export const EmptySummary = styled.span`
   color: #868686;
 `;
 
+export const Transactions = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+
+  gap: 14px;
+`;
+
 export const Balance = styled.div`
   width: 100%;
 

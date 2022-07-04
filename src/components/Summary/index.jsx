@@ -3,7 +3,13 @@ import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { Transaction } from '../Transaction';
 
-import { Container, EmptySummary, Balance, TotalAmount } from './styles';
+import {
+  Container,
+  EmptySummary,
+  Transactions,
+  Balance,
+  TotalAmount,
+} from './styles';
 
 export function Summary() {
   const [transactions, setTransactions] = useState([]);
@@ -43,15 +49,17 @@ export function Summary() {
         <EmptySummary>Não há registros de entrada ou saída</EmptySummary>
       ) : (
         <>
-          {transactions.map((transaction) => (
-            <Transaction
-              key={transaction._id}
-              date={transaction.date}
-              description={transaction.description}
-              value={transaction.value}
-              type={transaction.type}
-            />
-          ))}
+          <Transactions>
+            {transactions.map((transaction) => (
+              <Transaction
+                key={transaction._id}
+                date={transaction.date}
+                description={transaction.description}
+                value={transaction.value}
+                type={transaction.type}
+              />
+            ))}
+          </Transactions>
 
           <Balance>
             <span>Saldo</span>
