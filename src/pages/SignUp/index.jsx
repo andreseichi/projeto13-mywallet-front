@@ -18,8 +18,8 @@ import {
 
 export function SignUp() {
   const [inputs, setInputs] = useState({
-    name: 'a',
-    email: 'a@a.com',
+    name: '',
+    email: '',
     password: '',
     confirmPassword: '',
   });
